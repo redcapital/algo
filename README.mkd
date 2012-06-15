@@ -1,0 +1,6 @@
+This repository contains my solutions of algorithmic problems from online
+contests. The solutions might not be the best ones, but they all work. Also,
+I tried to explain main ideas in comments.
+
+In a world dominated by sophisticated frameworks, APIs and eye-candy, we still
+need to know things like O(n), algorithm analysis and data structures ;)
