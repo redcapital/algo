@@ -4,7 +4,7 @@
 // If k is odd, center will be v[k / 2], otherwise there will be 2 centers:
 // v[k / 2] and v[k / 2 + 1]
 //
-// To find this path, run BFS from any leaf (since vertice N is always a leaf,
+// To find this path, run BFS from any leaf (since vertex N is always a leaf,
 // we can start from N) and take the farthest vertex V. This vertex will be
 // a start of the path.
 // Run BFS from V and take the farthest vertex U (store visited vertices to
