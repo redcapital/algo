@@ -1,6 +1,15 @@
-This repository contains my solutions of algorithmic problems from online
-contests. The solutions might not be the best ones, but they all work. Also,
-I tried to explain main ideas in comments.
+This repository contains my solutions for algorithmic problems from online
+contests. The solutions might not be the best ones, but they're all correct.
+Also, I tried to explain main ideas in comments.
+
+Each directory is dedicated to one resource:
+
+- `timus`: Problems from [Timus Online Judge](http://acm.timus.ru/problemset.aspx?space=1&page=all)
+- `projecteuler`: Problems from [Project Euler](http://projecteuler.net/problems)
+- `rosalind`: Problems from [Rosalind](http://rosalind.info/problems/list-view/)
+
+Please visit appropriate resource to find problem statements and more
+information.
 
 In a world dominated by sophisticated frameworks, APIs and eye-candy, we still
 need to know things like O(n), algorithm analysis and data structures ;)
