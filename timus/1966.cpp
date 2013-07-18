@@ -1,10 +1,10 @@
 // Uses: disjoint-set union, geometry
 //
-// Let's use DSU. All points are initially in their own sets.
+// Let's use DSU. All points (i.e. statues) are initially in their own sets.
 // For every road, union their points into one set because they're reachable
 // from each other.
-// Then, intersect all points and roads. For every intersection, union
-// corresponding points into one set.
+// Then, intersect all roads with other roads and all roads with all points.
+// For every intersection, union corresponding points into one set.
 //
 // If all points belong to one set, answer YES.
 
@@ -37,7 +37,7 @@ void union_sets(int a, int b) {
 // Line intersection functions
 
 struct point {
-	ll x, y;
+  ll x, y;
 };
 
 struct road {
@@ -45,15 +45,15 @@ struct road {
 };
 
 ll area(point a, point b, point c) {
-	ll result = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+  ll result = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
   if (result == 0) return 0;
   return result > 0 ? 1 : -1;
 }
 
 bool intersect_bbox(ll a, ll b, ll c, ll d) {
-	if (a > b) swap(a, b);
-	if (c > d) swap(c, d);
-	return max(a,c) <= min(b,d);
+  if (a > b) swap(a, b);
+  if (c > d) swap(c, d);
+  return max(a,c) <= min(b,d);
 }
 
 bool intersect(point a, point b, point c, point d) {
