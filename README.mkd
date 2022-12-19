@@ -7,6 +7,7 @@ Each directory is dedicated to one resource:
 - `timus`: Problems from [Timus Online Judge](http://acm.timus.ru/problemset.aspx?space=1&page=all)
 - `projecteuler`: Problems from [Project Euler](http://projecteuler.net/problems)
 - `rosalind`: Problems from [Rosalind](http://rosalind.info/problems/list-view/)
+- `advent-of-code`: Problems from [Advent of Code](https://adventofcode.com/)
 
 Please visit appropriate resource to find problem statements and more
 information.

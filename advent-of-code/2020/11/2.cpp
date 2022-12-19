@@ -1,0 +1,91 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+const int N = 120;
+
+const int DIRS[8][2] = {
+  { -1, -1 },
+  { -1, 0  },
+  { -1, 1  },
+  { 0,  -1 },
+  { 0,  1  },
+  { 1,  -1 },
+  { 1,  0  },
+  { 1,  1  },
+};
+
+int main() {
+  string g[2][N];
+  int rows = 0, cols;
+  while (getline(cin, g[0][rows])) {
+    g[1][rows] = g[0][rows];
+    rows++;
+  }
+  cols = g[0][0].size();
+
+  int curGrid = 0;
+  while (true) {
+    int nextGrid = curGrid ? 0 : 1;
+
+    for (int i = 0; i < rows; i++) {
+      g[nextGrid][i] = g[curGrid][i];
+      for (int j = 0; j < cols; j++) {
+        if (g[curGrid][i][j] == '.') continue;
+
+        int occupied = 0;
+        for (int d = 0; d < 8; d++) {
+          for (
+            int r = i + DIRS[d][0], c = j + DIRS[d][1];
+            r >= 0 && r < rows && c >= 0 && c < cols;
+            r += DIRS[d][0], c += DIRS[d][1]
+          ) {
+            if (g[curGrid][r][c] == '.') continue;
+            if (g[curGrid][r][c] == '#') {
+              occupied++;
+            }
+            break;
+          }
+        }
+
+        if (g[curGrid][i][j] == 'L') {
+          if (occupied == 0) {
+            g[nextGrid][i][j] = '#';
+          }
+        } else if (g[curGrid][i][j] == '#') {
+          if (occupied >= 5) {
+            g[nextGrid][i][j] = 'L';
+          }
+        }
+      }
+    }
+
+    bool same = true;
+    for (int i = 0; i < rows; i++) {
+      if (g[curGrid][i] != g[nextGrid][i]) {
+        same = false;
+        break;
+      }
+    }
+    if (same) {
+      break;
+    }
+    curGrid = nextGrid;
+  }
+
+
+  int ans = 0;
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      if (g[0][i][j] == '#') {
+        ans++;
+      }
+    }
+  }
+
+  cout << ans << endl;
+  return 0;
+}
